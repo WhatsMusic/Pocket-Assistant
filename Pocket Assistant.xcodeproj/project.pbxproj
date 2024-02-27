@@ -14,8 +14,8 @@
 		50D66AEB2B8BEE3C00C6DFC9 /* AssistantModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D66AEA2B8BEE3C00C6DFC9 /* AssistantModels.swift */; };
 		50D66AED2B8BEE7500C6DFC9 /* AssistantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D66AEC2B8BEE7500C6DFC9 /* AssistantViewModel.swift */; };
 		50D66AEF2B8BEEC300C6DFC9 /* AssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D66AEE2B8BEEC300C6DFC9 /* AssistantView.swift */; };
-		50D66AF22B8BF00700C6DFC9 /* AssistantViewModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D66AF12B8BF00700C6DFC9 /* AssistantViewModelExtension.swift */; };
 		50D66AF52B8C1A4600C6DFC9 /* SwiftOpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 50D66AF42B8C1A4600C6DFC9 /* SwiftOpenAI */; };
+		50D66AFD2B8D025D00C6DFC9 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D66AFC2B8D025D00C6DFC9 /* MessageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		50D66AEA2B8BEE3C00C6DFC9 /* AssistantModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantModels.swift; sourceTree = "<group>"; };
 		50D66AEC2B8BEE7500C6DFC9 /* AssistantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantViewModel.swift; sourceTree = "<group>"; };
 		50D66AEE2B8BEEC300C6DFC9 /* AssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantView.swift; sourceTree = "<group>"; };
-		50D66AF12B8BF00700C6DFC9 /* AssistantViewModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantViewModelExtension.swift; sourceTree = "<group>"; };
+		50D66AFC2B8D025D00C6DFC9 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,6 @@
 		50D66AD82B8BEDEC00C6DFC9 /* Pocket Assistant */ = {
 			isa = PBXGroup;
 			children = (
-				50D66AF02B8BEFE400C6DFC9 /* Extensions */,
 				50D66AE92B8BEE1400C6DFC9 /* ViewModels */,
 				50D66AE82B8BEE0C00C6DFC9 /* Views */,
 				50D66AE72B8BEE0300C6DFC9 /* Models */,
@@ -93,6 +92,7 @@
 			children = (
 				50D66ADB2B8BEDEC00C6DFC9 /* ContentView.swift */,
 				50D66AEE2B8BEEC300C6DFC9 /* AssistantView.swift */,
+				50D66AFC2B8D025D00C6DFC9 /* MessageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -103,14 +103,6 @@
 				50D66AEC2B8BEE7500C6DFC9 /* AssistantViewModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		50D66AF02B8BEFE400C6DFC9 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				50D66AF12B8BF00700C6DFC9 /* AssistantViewModelExtension.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,8 +184,8 @@
 				50D66AEB2B8BEE3C00C6DFC9 /* AssistantModels.swift in Sources */,
 				50D66AED2B8BEE7500C6DFC9 /* AssistantViewModel.swift in Sources */,
 				50D66ADC2B8BEDEC00C6DFC9 /* ContentView.swift in Sources */,
-				50D66AF22B8BF00700C6DFC9 /* AssistantViewModelExtension.swift in Sources */,
 				50D66AEF2B8BEEC300C6DFC9 /* AssistantView.swift in Sources */,
+				50D66AFD2B8D025D00C6DFC9 /* MessageView.swift in Sources */,
 				50D66ADA2B8BEDEC00C6DFC9 /* Pocket_AssistantApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

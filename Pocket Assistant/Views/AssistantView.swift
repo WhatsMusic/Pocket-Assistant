@@ -8,59 +8,48 @@
 import SwiftUI
 
 struct AssistantView: View {
-    @ObservedObject var viewModel = AssistantViewModel()
-    @State private var newMessage = "" // Zustand für die Texteingabe
+  @ObservedObject var viewModel = AssistantViewModel()
+  @State private var newMessage = ""  // State for text input
 
-   
-    
-    var body: some View {
-        VStack {
-            // Anzeige der Nachrichten
-            List(viewModel.sortedMessages, id: \.id) { message in
-                VStack(alignment: .leading) {
-                    Text(message.role.capitalized + ":")
-                        .font(.headline)
-                        .foregroundColor(message.role == "user" ? .blue : .green)
-                    Text(message.content)
-                        .padding(.leading, 5)
-                }
+  var body: some View {
+    VStack {
+      List(viewModel.messages) { message in
+        MessageView(message: message)
+      }
+        // Input area for new messages
+      HStack {
+        TextField("Message", text: $newMessage)
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+          .padding(.leading, 10)
+
+        Button("Send") {
+          Task {
+            if let threadId = viewModel.threadId {
+              await viewModel.createMessage(threadId: threadId, content: newMessage)
+              newMessage = ""  // Reset input field
+              try await viewModel.startAndCheckRun(threadId: threadId)
+
+            } else {
+              print("Thread ID not available.")
             }
-            
-            // Eingabebereich für neue Nachrichten
-            HStack {
-                TextField("Nachricht", text: $newMessage)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.leading, 10)
-                
-                Button("Senden") {
-                    Task {
-                        if let threadId = viewModel.threadId {
-                            await viewModel.createMessage(threadId: threadId, content: newMessage)
-                                newMessage = "" // Eingabefeld zurücksetzen
-                            await viewModel.startAndCheckRun(threadId: threadId)
-                        } else {
-                            print("Thread ID nicht verfügbar.")
-                        }
-                    }
-                }
-                .padding(.trailing, 10)
-            }.padding()
+          }
         }
-        .onAppear {
-            Task {
-                if viewModel.threadId == nil {
-                    await viewModel.createThread()
-                }
-                
-            }
-        }
+        .padding(.trailing, 10)
+      }.padding()
     }
+    .onAppear {
+      Task {
+        if viewModel.threadId == nil {
+          await viewModel.createThread()
+        }
+
+      }
+    }
+  }
 }
 
-
-
 struct AssistantView_Previews: PreviewProvider {
-    static var previews: some View {
-        AssistantView(viewModel: AssistantViewModel())
-    }
+  static var previews: some View {
+    AssistantView(viewModel: AssistantViewModel())
+  }
 }
