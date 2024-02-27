@@ -3,6 +3,9 @@
 ## Overview
 **Pocket Assistant** is a SwiftUI-based iOS application designed to interact with an AI assistant through text messages. The app allows users to send messages to the AI assistant and receive responses, creating a conversational experience. It leverages the SwiftOpenAI package to communicate with the OpenAI API, which powers the AI assistant's capabilities.
 
+<img src="https://github.com/WhatsMusic/Pocket-Assistant/blob/main/openai_assistant_api_swift_ui_pocket_assistant_mockup.png" width="325" height="auto">
+
+
 ## Features
 
 - **Messaging Interface:** Users can send and receive messages from the AI assistant in a chat-like interface.
