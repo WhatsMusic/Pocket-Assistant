@@ -10,11 +10,10 @@ import SwiftUI
 
 @main
 struct Pocket_AssistantApp: App {
-  @StateObject var viewModel = AssistantViewModel()  // Verwende @StateObject für die App-Lebensdauer
-
+  @StateObject var viewModel = AssistantViewModel()  // Use @StateObject for the app lifetime
   var body: some Scene {
     WindowGroup {
-      AssistantView(viewModel: viewModel)  // Übergebe das ViewModel als Parameter
+      AssistantView(viewModel: viewModel)  // Pass the ViewModel as a parameter
 
     }
   }

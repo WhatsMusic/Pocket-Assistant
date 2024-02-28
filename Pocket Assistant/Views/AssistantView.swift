@@ -9,13 +9,18 @@ import SwiftUI
 
 struct AssistantView: View {
   @ObservedObject var viewModel = AssistantViewModel()
-  @State private var newMessage = ""  // State for text input
+   // @ObservedObject var viewModel = AssistantWithoutPackageViewModel()
+    @State private var newMessage = ""  // State for text input
 
   var body: some View {
     VStack {
       List(viewModel.messages) { message in
         MessageView(message: message)
+              .listRowSeparator(.hidden)
+              
       }
+      .listStyle(PlainListStyle())
+      
         // Input area for new messages
       HStack {
         TextField("Message", text: $newMessage)
@@ -28,6 +33,7 @@ struct AssistantView: View {
               await viewModel.createMessage(threadId: threadId, content: newMessage)
               newMessage = ""  // Reset input field
               try await viewModel.startAndCheckRun(threadId: threadId)
+                
 
             } else {
               print("Thread ID not available.")

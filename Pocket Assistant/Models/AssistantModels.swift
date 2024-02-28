@@ -14,18 +14,18 @@ struct Message: Identifiable, Codable, Comparable {
   var content: String
   var createdAt: Date
 
-  // Calculated property that returns the formatted content
-  var formattedContent: String {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .medium
-    dateFormatter.timeStyle = .short
-    let dateString = dateFormatter.string(from: createdAt)
-
-    return "\(content) (gesendet am \(dateString))"
-  }
+//  // Calculated property that returns the formatted content
+//  var formattedContent: String {
+//    let dateFormatter = DateFormatter()
+//    dateFormatter.dateStyle = .medium
+//    dateFormatter.timeStyle = .short
+//    let dateString = dateFormatter.string(from: createdAt)
+//
+//    return "\(content)\n(sent \(dateString))"
+//  }
 
   static func < (lhs: Message, rhs: Message) -> Bool {
-    return lhs.createdAt > rhs.createdAt
+    return lhs.createdAt < rhs.createdAt
   }
 }
 
@@ -69,6 +69,28 @@ public enum Content: Codable {
 // Tool-Struktur, um die Tools im Run zu repräsentieren
 struct Tool {
   var type: String
+}
+
+struct MessageResponse: Codable {
+  let id: String
+  let threadId: String
+  let role: String
+  let content: [MessageContent]
+  let createdAt: Double  // oder String, je nachdem, wie das Datum formatiert ist
+
+  enum CodingKeys: String, CodingKey {
+    case id
+    case threadId = "thread_id"
+    case role
+    case content
+    case createdAt = "created_at"
+  }
+}
+
+struct MessageContent: Codable {
+  let type: String
+  let text: String?  // oder ein anderer Typ, je nachdem, was `content` enthält
+  let role: String
 }
 
 // Antwort-Struktur für das Erstellen eines Runs

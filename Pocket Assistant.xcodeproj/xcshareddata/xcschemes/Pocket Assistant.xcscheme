@@ -52,7 +52,12 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "OPENAI_API_KEY"
-            value = "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"
+            value = "Your OpenAi API Key"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "OPENAI_ASSISTANT_ID"
+            value = "Your OpenAi API Assistant Id"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
